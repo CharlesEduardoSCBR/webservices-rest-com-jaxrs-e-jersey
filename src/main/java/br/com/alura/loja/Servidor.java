@@ -11,12 +11,21 @@ public class Servidor {
 
 	public static void main(String[] args) throws IOException {
 		
-		URI uri = URI.create("http://localhost:8080/");
-		ResourceConfig configuration = new ResourceConfig().packages("br.com.alura.loja");
-		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri , configuration);
+		HttpServer server = inicializaServidor();
 
 		System.out.println("Servidor rodando");
 		System.in.read();
+		finalizaServidor(server);
+	}
+
+	public static HttpServer inicializaServidor() {
+		URI uri = URI.create("http://localhost:8080/");
+		ResourceConfig configuration = new ResourceConfig().packages("br.com.alura.loja");
+		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri , configuration);
+		return server;
+	}
+	
+	public static void finalizaServidor(HttpServer server) {
 		server.stop();
 	}
 }
