@@ -46,12 +46,12 @@ public class CarrinhoResource {
 		return Response.ok().build();
 	}
 	
-	@Path("{id}/produtos/{produtoId}")
+	@Path("{id}/produtos/{produtoId}/quantidade")
 	@PUT
 	public Response alteraProduto(@PathParam("id") long id, @PathParam("produtoId") long produtoId, String conteudo){
 		Carrinho carrinho = new CarrinhoDAO().busca(id);
 		Produto produto = (Produto) new XStream().fromXML(conteudo);
-		carrinho.troca(produto);
+		carrinho.trocaQuantidade(produto);
 		return Response.ok().build();
 	}
 }
