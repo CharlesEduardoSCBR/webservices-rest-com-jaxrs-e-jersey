@@ -37,11 +37,4 @@ public class ProjetoResource {
 		URI uri = URI.create("/projetos/" + projeto.getId());
 		return Response.created(uri).build();
 	}
-	
-	@Path("{id}/produtos/{produtoId}")
-	@DELETE
-	public Response removeProduto(@PathParam("id") long id, @PathParam("produtoId") long produtoId){
-		new CarrinhoDAO().busca(id).remove(produtoId);		
-		return Response.ok().build();
-	}
 }
