@@ -5,9 +5,10 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.xml.ws.Response;
+
 
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.grizzly.http.server.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,7 +59,7 @@ public class ClienteTeste {
 		
 		Entity<String> entity = Entity.entity(xml, MediaType.APPLICATION_XML);
 
-		Response response = (Response) target.path("/carrinhos").request().post(entity);
-		Assert.assertEquals("<status>sucesso</status>", ((javax.ws.rs.core.Response) response).readEntity(String.class));
+		javax.ws.rs.core.Response response = target.path("/carrinhos").request().post(entity);
+		Assert.assertEquals(201, response.getStatus());
 	}
 }
