@@ -1,1 +1,2 @@
 C1M11.04 - curl -v -X PUT -H "Content-Type: application/xml" -d "<br.com.alura.loja.modelo.Produto>      <preco>60.0</preco>      <id>3467</id>      <nome>Jogo de esporte</nome>      <quantidade>1</quantidade> </br.com.alura.loja.modelo.Produto>" http://localhost:8080/carrinhos/1/produtos/3467
+C1M11.05 - curl -v -X PUT -H "Content-Type: application/xml" -d "<br.com.alura.loja.modelo.Produto> <id>3467</id> <quantidade>5</quantidade>    </br.com.alura.loja.modelo.Produto>" http://localhost:8080/carrinhos/1/produtos/3467/quantidade
